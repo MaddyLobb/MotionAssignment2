@@ -1,4 +1,9 @@
 import { gsap } from "gsap";
+
+import { GSDevTools } from "gsap/GSDevTools";
+
+gsap.registerPlugin(GSDevTools);
+
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(DrawSVGPlugin);
@@ -13,6 +18,27 @@ const mainTL = gsap.timeline();
 
 // name of the timeline | do you want to start at the end or the beginning of the timeline?  | What do you want to animate? | { how long is the animation? | what do you want to do?}
 
+//Preloader Animation --------------------------------------------------------------------------------------
+mainTL.to("#sf2", {duration: 2, drawSVG:"0%"});
+
+function sfdraw(){
+
+    const tl = gsap.timeline
+    tl.to ("#sf2", {duration: 2,drawSVG:"0%"});
+    return tl;
+}
+function mixdraw(){
+
+    const tl = gsap.timeline
+    tl.to ("#mix2", {duration: 2,drawSVG:"0%"});
+    return tl;
+}
+
+mainTL.add(sfdraw())
+        .add(mixdraw());
+
+
+//Hero Animation -------------------------------------------------------------------------------------------
 // pathOne or circle starts at begining of timeline and will draw out fully then disapear
 mainTL.to("#pathOne",{duration: 2, drawSVG:"0%"});
 
