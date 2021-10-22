@@ -1,0 +1,29 @@
+/* =============
+    Navigation
+============= */
+nav{
+    height: 100%;
+
+    ul{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+
+        li{
+            margin-left: 2vw;
+
+            a:link, a:visited{
+                font-family: 'Open Sans', sans-serif;
+                font-size: rem-calc(16);
+                color: $green;
+                font-weight: 900;
+
+                @include md{
+                    font-size: 18px;
+                }
+
+            }
+        }
+    }
+}

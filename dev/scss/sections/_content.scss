@@ -1,0 +1,45 @@
+#content {
+    display: grid;
+    grid-template-areas: ". content .";
+    grid-template-columns: auto 90% auto;
+    padding: 64px 0;
+
+    @include md {
+        grid-template-columns: auto 80% auto;
+        padding: 100px 0;
+    }
+
+    @include lg {
+        grid-template-columns: auto 80% auto;
+        padding: 128px 0;
+    }
+
+    @include xl {
+        grid-template-columns: auto 1440px auto;
+    }
+
+    >div {
+        grid-area: content;
+
+        @include lg {
+            padding: 0 30%;
+        }
+
+        h1 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 900;
+            font-size: rem-calc(24);
+            margin-bottom: 10px;
+            color: $brown;
+        }
+
+        p {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: rem-calc(18);
+            color: $lightbrown;
+            line-height: rem-calc(30);
+            text-align: justify;
+        }
+    }
+}
