@@ -465,38 +465,6 @@ header > div aside a {
 /* =============
     Footer
 ============= */
-#preloader {
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  z-index: 5000;
-  background-color: white;
-}
-#preloader > div {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#preloader > div svg {
-  width: 70%;
-}
-@media (min-width: 768px) {
-  #preloader > div svg {
-    width: 50%;
-  }
-}
-@media (min-width: 1024px) {
-  #preloader > div svg {
-    width: 40%;
-  }
-}
-@media (min-width: 1440px) {
-  #preloader > div svg {
-    width: 30%;
-  }
-}
-
 #hero {
   height: 90vh;
   width: 100%;
