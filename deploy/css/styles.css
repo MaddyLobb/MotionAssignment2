@@ -482,9 +482,6 @@ header > div aside a {
   justify-content: center;
   align-items: center;
 }
-#preloader > div svg {
-  position: absolute;
-}
 
 #hero {
   height: 90vh;

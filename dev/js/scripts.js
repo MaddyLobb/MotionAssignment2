@@ -18,48 +18,57 @@ let mainTL = gsap.timeline();
 //Preloader Animation --------------------------------------------------------------------------------------
 // mainTL.to("#sf2", {duration: 2, drawSVG:"0%"});
 
-function sf(){
-
+function jars(){
+    console.log("hello");
     const tl = gsap.timeline();
-    tl.from ("#sf2", {duration: 3, stroke: "#000", drawSVG:"0%"})
-            .to ("#sf2", {duration: 3, stroke: "#E9E5D8", drawSVG:"0%"});
+
+    // tl.from ("#jars", {duration: 3, stroke: "#000", drawSVG:"0%"})
+    // .to("#jars", {duration: 3,drawSVG:"0%",});
+
+    tl.fromTo("#jars", {drawSVG:"0% 0%"},{duration: 3, drawSVG:"0% 100%"})
+    .fromTo("#jars", {drawSVG:"100% 100%"},{duration: 3, drawSVG:"100% 0%"});
+    // toString.
+    //tl.from ("#jars", {duration: 3, stroke: "#000", drawSVG:"0%"})
+    // tl.from ("#sf2", {duration: 3, stroke: "#000", drawSVG:"0%"})
+    //         .to ("#sf2", {duration: 3, stroke: "#E9E5D8", drawSVG:"0%"});
     return tl;
 }
 
 
 
-function mixer(){
+// function mixer(){
 
-    const tl = gsap.timeline ();
-    tl.from ("#mix2", {duration: 3,drawSVG:"0%"})
-            .to ("#mix2", {duration: 3,drawSVG:"0%"});
-    return tl;
-}
-
-
-function oven(){
-
-    const tl = gsap.timeline ();
-    tl.from ("#ov2", {duration: 3,stroke:"#000",drawSVG:"0%"})
-            .from ("#ov2", {duration: 2,stroke:"#FF522D"})
-            .to ("#ov2", {duration: 3, drawSVG:"0%"});
-    return tl;
-}
+//     const tl = gsap.timeline ();
+//     tl.from ("#mix2", {duration: 3,drawSVG:"0%"})
+//             .to ("#mix2", {duration: 3,drawSVG:"0%"});
+//     return tl;
+// }
 
 
-function cake(){
+// function oven(){
 
-    const tl = gsap.timeline ();
-    tl.from ("#cak2", {duration: 3,drawSVG:"0%"})
-        .to ("#cak2", {duration: 3,drawSVG:"0%"});
-    return tl;
-}
+//     const tl = gsap.timeline ();
+//     tl.from ("#ov2", {duration: 3,stroke:"#000",drawSVG:"0%"})
+//             .from ("#ov2", {duration: 2,stroke:"#FF522D"})
+//             .to ("#ov2", {duration: 3, drawSVG:"0%"});
+//     return tl;
+// }
 
 
-mainTL.add(sf())
-        .add(mixer())
-        .add(oven())
-        .add(cake());
+// function cake(){
+
+//     const tl = gsap.timeline ();
+//     tl.from ("#cak2", {duration: 3,drawSVG:"0%"})
+//         .to ("#cak2", {duration: 3,drawSVG:"0%"});
+//     return tl;
+// }
+
+
+mainTL.add(jars());
+
+        // .add(mixer())
+        // .add(oven())
+        // .add(cake());
 
 
 
