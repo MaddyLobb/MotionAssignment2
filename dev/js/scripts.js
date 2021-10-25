@@ -18,44 +18,48 @@ let mainTL = gsap.timeline();
 //Preloader Animation --------------------------------------------------------------------------------------
 // mainTL.to("#sf2", {duration: 2, drawSVG:"0%"});
 
-function sfdrawOne(){
+function sf(){
 
     const tl = gsap.timeline();
-    tl.from ("#sf2", {duration: 2,drawSVG:"0%"});
+    tl.from ("#sf2", {duration: 3, stroke: "#000", drawSVG:"0%"})
+            .to ("#sf2", {duration: 3, stroke: "#E9E5D8", drawSVG:"0%"});
     return tl;
 }
 
-function sfdraw2(){
+
+
+function mixer(){
 
     const tl = gsap.timeline ();
-    tl.to ("#sf2", {duration: 2,drawSVG:"0%"});
+    tl.from ("#mix2", {duration: 3,drawSVG:"0%"})
+            .to ("#mix2", {duration: 3,drawSVG:"0%"});
     return tl;
 }
 
-// function mixdraw(){
 
-//     const tl = gsap.timeline ();
-//     tl.to ("#mix2", {duration: 2,drawSVG:"0%"});
-//     return tl;
-// }
-// function ovdraw(){
+function oven(){
 
-//     const tl = gsap.timeline ();
-//     tl.to ("#ov2", {duration: 2,drawSVG:"0%"});
-//     return tl;
-// }
-// function cakdraw(){
+    const tl = gsap.timeline ();
+    tl.from ("#ov2", {duration: 3,stroke:"#000",drawSVG:"0%"})
+            .from ("#ov2", {duration: 2,stroke:"#FF522D"})
+            .to ("#ov2", {duration: 3, drawSVG:"0%"});
+    return tl;
+}
 
-//     const tl = gsap.timeline ();
-//     tl.to ("#cak2", {duration: 2,drawSVG:"0%"});
-//     return tl;
-// }
 
-mainTL.add(sfdrawOne())
-        .add(sfdraw2())
-        // .add(mixdraw())
-        // .add(ovdraw())
-        // .add(cakdraw());
+function cake(){
+
+    const tl = gsap.timeline ();
+    tl.from ("#cak2", {duration: 3,drawSVG:"0%"})
+        .to ("#cak2", {duration: 3,drawSVG:"0%"});
+    return tl;
+}
+
+
+mainTL.add(sf())
+        .add(mixer())
+        .add(oven())
+        .add(cake());
 
 
 
