@@ -22,10 +22,11 @@ function jars(){
     // console.log("hello");
     const tl = gsap.timeline();
 
-    tl.fromTo("#jars", {drawSVG:"0% 0%"},{duration: 2, drawSVG:"0% 100%", ease: "none"})
-    .to("#jars", { duration: 1, stroke: "#E9E5D8", ease: "expo.in"})
-    .fromTo("#jars", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
-    .to("#jars", { duration: 1, alpha: 0, ease: "expo.out"});
+    tl.fromTo("#jars", {drawSVG:"100% 0%"},{duration: 2, drawSVG:"50% 50%", ease: "none"});
+    // .to("#jars", {drawSVG:"100% 0%", duration: 2});
+    // .to("#jars", { duration: 1, stroke: "#E9E5D8", ease: "expo.in"})
+    // .fromTo("#jars", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
+    // .to("#jars", { duration: 1, alpha: 0, ease: "expo.out"});
 
     return tl;
 }
@@ -42,6 +43,18 @@ function mixer(){
     return tl;
 }
 
+function blades(){
+
+    const tl = gsap.timeline ();
+
+    tl.from("#blade1", {duration: 2, alpha:0})
+    .from("#blade2", {duration: 2, alpha:0})
+    .to("#blade1", { duration: 1, alpha: 0, ease: "expo.out"})
+    .to("#blade2", { duration: 1, alpha: 0, ease: "expo.out"});
+
+    return tl;
+}
+
 
 function oven(){
 
@@ -52,6 +65,23 @@ function oven(){
     .to("#oven", { duration: 2, stroke: "#000", strokeWidth: 3})
     .fromTo("#oven", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
     .to("#oven", { duration: 1, alpha: 0, ease: "expo.out"});
+
+    return tl;
+}
+
+function knobs(){
+
+    const tl = gsap.timeline ();
+
+    tl.from(".knob", {duration: 2, alpha:0})
+    .to(".knob", {duration: 1,rotation:"-20"})
+    // .from("#knob5", {duration: 1,rotation:"20"})
+    // .from("#knob2", {duration: 1,rotation:"-20"})
+    // .from("#knob3", {duration: 1,rotation:"10"})
+    // .from("#knob4", {duration: 1,rotation:"-20"})
+    // .from("#knob5", {duration: 1,rotation:"20"})
+    .to(".knob", { duration: 1, alpha: 0, ease: "expo.out"});
+
 
     return tl;
 }
@@ -74,7 +104,7 @@ function candle(){
 
     const tl = gsap.timeline ();
 
-    tl.from("#candle", {duration: 2, alpha:100})
+    tl.from("#candle", {duration: 2, alpha: 0})
     .to("#candle", { duration: 1, alpha: 0, ease: "expo.out"});
 
 
@@ -85,8 +115,10 @@ function candle(){
 
 
 mainTL.add(jars())
-        .add(mixer(), "-=1")
-        .add(oven(), "-=1")
+        .add(mixer())
+        .add(blades(), "-=1")
+        .add(knobs(), "same")
+        .add(oven(), "same")
         .add(cake(), "-=1")
         .add(candle(), "-=1");
 
