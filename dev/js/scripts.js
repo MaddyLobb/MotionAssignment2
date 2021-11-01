@@ -69,22 +69,22 @@ function oven(){
     return tl;
 }
 
-function knobs(){
+// function knobs(){
 
-    const tl = gsap.timeline ();
+//     const tl = gsap.timeline ();
 
-    tl.from(".knob", {duration: 2, alpha:0})
-    .to(".knob", {duration: 1,rotation:"-20"})
-    // .from("#knob5", {duration: 1,rotation:"20"})
-    // .from("#knob2", {duration: 1,rotation:"-20"})
-    // .from("#knob3", {duration: 1,rotation:"10"})
-    // .from("#knob4", {duration: 1,rotation:"-20"})
-    // .from("#knob5", {duration: 1,rotation:"20"})
-    .to(".knob", { duration: 1, alpha: 0, ease: "expo.out"});
+//     tl.from(".knob", {duration: 2, alpha:0})
+//     .to(".knob", {duration: 1,rotation:"-20"})
+//     .from("#knob5", {duration: 1,rotation:"20"})
+//     .from("#knob2", {duration: 1,rotation:"-20"})
+//     .from("#knob3", {duration: 1,rotation:"10"})
+//     .from("#knob4", {duration: 1,rotation:"-20"})
+//     .from("#knob5", {duration: 1,rotation:"20"})
+//     .to(".knob", { duration: 1, alpha: 0, ease: "expo.out"});
 
 
-    return tl;
-}
+//     return tl;
+// }
 
 
 function cake(){
@@ -117,8 +117,8 @@ function candle(){
 mainTL.add(jars())
         .add(mixer())
         .add(blades(), "-=1")
-        .add(knobs(), "same")
-        .add(oven(), "same")
+        // .add(knobs(), "same")
+        .add(oven(), "-=1")
         .add(cake(), "-=1")
         .add(candle(), "-=1");
 
