@@ -6,12 +6,9 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 gsap.registerPlugin(GSDevTools, DrawSVGPlugin);
 
 
+gsap.set("path", { drawSVG: 0 });
 
-
-// gsap.set("#path",{transformOrigin: "50% 50%", xPercent: -50, yPercent: -50});
-// const duration = 0.75;
-
-let mainTL = gsap.timeline();
+let mainTL = gsap.timeline({repeat: -1});
 
 
 // name of the timeline | do you want to start at the end or the beginning of the timeline?  | What do you want to animate? | { how long is the animation? | what do you want to do?}
@@ -19,52 +16,77 @@ let mainTL = gsap.timeline();
 //Preloader Animation --------------------------------------------------------------------------------------
 
 function jars(){
-    // console.log("hello");
+
     const tl = gsap.timeline();
 
-    tl.fromTo("#jars", {drawSVG:"100% 0%"},{duration: 2, drawSVG:"50% 50%", ease: "none"});
-    // .to("#jars", {drawSVG:"100% 0%", duration: 2});
-    // .to("#jars", { duration: 1, stroke: "#E9E5D8", ease: "expo.in"})
-    // .fromTo("#jars", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
-    // .to("#jars", { duration: 1, alpha: 0, ease: "expo.out"});
+    tl.to("#jars", { duration: 3, drawSVG: true })
+    .to("#jars", {duration: 1, drawSVG: "100% 100%"});
+
+    // tl.from("#jars",{duration:3, drawSVG: "0%"})
+    //   .fromTo("#jars", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
 
     return tl;
 }
+
+ // .to("#jars", {drawSVG:"100% 0%", duration: 2});
+    // .to("#jars", { duration: 1, stroke: "#E9E5D8", ease: "expo.in"})
+    // .fromTo("#jars", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
+    // .to("#jars", { duration: 1, alpha: 0, ease: "expo.out"});
 
 
 
 function mixer(){
 
     const tl = gsap.timeline ();
-    tl.fromTo("#mixer", {drawSVG:"0% 0%"},{duration: 2, drawSVG:"0% 100%"})
-    .fromTo("#mixer", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
-    .to("#mixer", { duration: 1, alpha: 0, ease: "expo.out"});
+
+    tl.to("#mixer", { duration: 3, drawSVG: true })
+    .to("#mixer", {duration: 1, drawSVG: "100% 100%"});
+
+    // tl.from("#mixer",{duration:1, drawSVG: "0%"})
+    //   .fromTo("#mixer", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
+    
 
     return tl;
 }
 
-function blades(){
+// tl.fromTo("#mixer", {drawSVG:"0% 0%"},{duration: 2, drawSVG:"0% 100%"})
+    // .fromTo("#mixer", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
+    // .to("#mixer", { duration: 1, alpha: 0, ease: "expo.out"});
 
-    const tl = gsap.timeline ();
 
-    tl.from("#blade1", {duration: 2, alpha:0})
-    .from("#blade2", {duration: 2, alpha:0})
-    .to("#blade1", { duration: 1, alpha: 0, ease: "expo.out"})
-    .to("#blade2", { duration: 1, alpha: 0, ease: "expo.out"});
 
-    return tl;
-}
+// function blades(){
+
+//     const tl = gsap.timeline ();
+
+//     tl.from("#blade1", {duration: 2, alpha:0})
+//     .from("#blade2", {duration: 2, alpha:0})
+//     .to("#blade1", { duration: 1, alpha: 0, ease: "expo.out"})
+//     .to("#blade2", { duration: 1, alpha: 0, ease: "expo.out"});
+
+//     return tl;
+// }
 
 
 function oven(){
 
     const tl = gsap.timeline ();
 
-    tl.fromTo("#oven", {drawSVG:"0% 0%"},{duration: 2, drawSVG:"0% 100%"})
-    .to("#oven", { duration: 1, stroke: "#FF522D", strokeWidth: 5})
-    .to("#oven", { duration: 2, stroke: "#000", strokeWidth: 3})
-    .fromTo("#oven", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
-    .to("#oven", { duration: 1, alpha: 0, ease: "expo.out"});
+    tl.to("#oven", { duration: 3, drawSVG: true })
+      .from("#knob1",{duration: .05, alpha:0},">-=.743")
+      .from("#knob2",{duration: .05, alpha:0},">-=.039")
+      .from("#knob3",{duration: .05, alpha:0},">-=.045")
+      .from("#knob4",{duration: .05, alpha:0},">-=.035")
+      .from("#knob5",{duration: .05, alpha:0},">-=.0469")
+      .to("#oven", {duration: 1, drawSVG: "100% 100%"});
+    //   tl.from("#oven",{duration:1, drawSVG: "0%"})
+    //   .fromTo("#oven", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
+
+    // tl.fromTo("#oven", {drawSVG:"0% 0%"},{duration: 2, drawSVG:"0% 100%"})
+    // .to("#oven", { duration: 1, stroke: "#FF522D", strokeWidth: 5})
+    // .to("#oven", { duration: 2, stroke: "#000", strokeWidth: 3})
+    // .fromTo("#oven", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
+    // .to("#oven", { duration: 1, alpha: 0, ease: "expo.out"});
 
     return tl;
 }
@@ -90,37 +112,45 @@ function oven(){
 function cake(){
 
     const tl = gsap.timeline ();
+      
+        tl.to("#cake", { duration: 3, drawSVG: true })
+        .to("#cake", {duration: 1, drawSVG: "100% 100%"});
 
-    tl.fromTo("#cake", {drawSVG:"0% 0%"},{duration: 2, drawSVG:"0% 100%"})
-    .fromTo("#cake", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
-    .to("#cake", { duration: 1, alpha: 0, ease: "expo.out"});
-
-
-    return tl;
-}
-
-
-function candle(){
-
-    const tl = gsap.timeline ();
-
-    tl.from("#candle", {duration: 2, alpha: 0})
-    .to("#candle", { duration: 1, alpha: 0, ease: "expo.out"});
+    // tl.from("#cake",{duration:1, drawSVG: "0%"})
+    //   .fromTo("#cake", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
 
 
     return tl;
 }
+
+ // tl.fromTo("#cake", {drawSVG:"0% 0%"},{duration: 2, drawSVG:"0% 100%"})
+    // .fromTo("#cake", {drawSVG:"100% 100%"},{duration: 2, drawSVG:"0% 100%"})
+    // .to("#cake", { duration: 1, alpha: 0, ease: "expo.out"});
+
+
+// function candle(){
+
+//     const tl = gsap.timeline ();
+
+//     tl.from("#candle", {duration: 2, alpha: 0})
+//     .to("#candle", { duration: 1, alpha: 0, ease: "expo.out"});
+
+
+//     return tl;
+// }
 
 
 
 
 mainTL.add(jars())
-        .add(mixer())
-        .add(blades(), "-=1")
+      .add(mixer())
+      .add(oven())
+      .add(cake());
+
+
+        // .add(candle(), "-=1");
+                // .add(blades(), "-=1")
         // .add(knobs(), "same")
-        .add(oven(), "-=1")
-        .add(cake(), "-=1")
-        .add(candle(), "-=1");
 
 
 
