@@ -2,15 +2,11 @@ import { gsap } from "gsap";
 import { GSDevTools } from "gsap/GSDevTools";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
-console.clear();
+//console.clear();
 gsap.registerPlugin(GSDevTools, DrawSVGPlugin);
 
 
-gsap.set("path", { drawSVG: 0 });
-gsap.set("knob3", {transformOrigin: "100% 100%", xPercent: -100, yPercent: -100});
-gsap.set("jars", {transformOrigin: "50% 50%", xPercent: -50, yPercent: -50});
-
-let mainTL = gsap.timeline({repeat: -1});
+let mainTL = gsap.timeline();
 
 
 // name of the timeline | do you want to start at the end or the beginning of the timeline?  | What do you want to animate? | { how long is the animation? | what do you want to do?}
@@ -21,14 +17,10 @@ function jars(){
 
     const tl = gsap.timeline();
 
-    tl.to("#jars", { duration: 1, drawSVG: true })
-    .to("#jars" ,{duration: 2, stroke: "#E9E5D8", ease: "expo.in"})
-    .to("#jars", {duration: 1, drawSVG: "100% 100%"});
-
-
-    // Code form your demo
-    // tl.from("#jars",{duration:3, drawSVG: "0%"})
-    //   .fromTo("#jars", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
+        tl.from("#jars",{duration:0.01, alpha:0})
+        .from("#jars",{duration:3, drawSVG: "0%"})
+        .to("#jars" ,{duration: 2, stroke: "#E9E5D8", ease: "expo.in"})
+        .fromTo("#jars", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
 
     return tl;
 }
@@ -41,49 +33,42 @@ function mixer(){
 
     const tl = gsap.timeline ();
 
-    tl.to("#mixer", { duration: 1, drawSVG: true })
-    .to("#mixer", {duration: 1, drawSVG: "100% 100%"});
-
-    // Code form your demo
-    // tl.from("#mixer",{duration:1, drawSVG: "0%"})
-    //   .fromTo("#mixer", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
-    
+    tl.from("#mixer",{duration:0.01, alpha:0})
+        .from("#mixer",{duration:3, drawSVG: "0%"})
+        .fromTo("#mixer", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
 
     return tl;
 }
 
 
-function blades(){
+// function blades(){
 
-    const tl = gsap.timeline ();
+//     const tl = gsap.timeline ();
 
-    tl.from("#blade1", {duration: 2, alpha:0})
-    .from("#blade2", {duration: 2, alpha:0})
-    .to("#blade1", { duration: 1, alpha: 0, ease: "expo.out"})
-    .to("#blade2", { duration: 1, alpha: 0, ease: "expo.out"});
+//     tl.from("#blade1", {duration: 2, alpha:0})
+//     .from("#blade2", {duration: 2, alpha:0})
+//     .to("#blade1", { duration: 1, alpha: 0, ease: "expo.out"})
+//     .to("#blade2", { duration: 1, alpha: 0, ease: "expo.out"});
 
-    return tl;
-}
+//     return tl;
+// }
 
 
 function oven(){
 
     const tl = gsap.timeline ();
 
-    tl.to("#oven", { duration: 3, drawSVG: true })
-      .from("#knob1",{duration: .05, alpha:0},">-=.743")
-      .from("#knob2",{duration: .05, alpha:0},">-=.039")
-      .from("#knob3",{duration: .05, alpha:0},">-=.045")
+    tl.from("#oven",{duration:0.01, alpha:0})
+      .from("#oven",{duration:3, drawSVG: "0%"})
+      .from("#knob1",{duration: .05, alpha:0},">-= 50%")
+      .from("#knob2",{duration: .05, alpha:0},">-=.5")
+      .from("#knob3",{duration: .05, alpha:0, rotate: 0},">-=.045")
       .from("#knob4",{duration: .05, alpha:0},">-=.035")
       .from("#knob5",{duration: .05, alpha:0},">-=.0469")
-      .from ("#knob3", {duration: .5, rotation: -20})
+      .from ("#knob3", {duration: .5, rotate: -20, transformOrigin: "100% 0"})
       .to("#oven", { duration: 1, stroke: "#FF522D", strokeWidth: 5})
       .to("#oven", { duration: 2, stroke: "#000", strokeWidth: 3})
-      .to("#oven", {duration: 1, drawSVG: "100% 100%"});
-
-    // Code form your demo
-    //   tl.from("#oven",{duration:1, drawSVG: "0%"})
-    //   .fromTo("#oven", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
+      .fromTo("#oven", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
 
     return tl;
 }
@@ -92,38 +77,34 @@ function oven(){
 function cake(){
 
     const tl = gsap.timeline ();
-      
-        tl.to("#cake", { duration: 1, drawSVG: true })
-        .to("#cake", {duration: 1, drawSVG: "100% 100%"});
 
-    // Code form your demo
-    // tl.from("#cake",{duration:1, drawSVG: "0%"})
-    //   .fromTo("#cake", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
-
+    tl.from("#cake",{duration:0.01, alpha:0})
+        .from("#cake",{duration:3, drawSVG: "0%"})
+        .fromTo("#cake", {drawSVG:"0% 100%"},{duration: 1, drawSVG:"100% 100%"});
 
     return tl;
 }
 
 
-function candle(){
+// function candle(){
 
-    const tl = gsap.timeline ();
+//     const tl = gsap.timeline ();
 
-    tl.from("#candle", {duration: 2, alpha: 0})
-    .to("#candle", { duration: 1, alpha: 0, ease: "expo.out"});
+//     tl.from("#candle", {duration: 2, alpha: 0})
+//     .to("#candle", { duration: 1, alpha: 0, ease: "expo.out"});
 
 
-    return tl;
-}
+//     return tl;
+// }
 
 
 
 
 mainTL.add(jars())
       .add(mixer())
-      .add(blades())
+      //.add(blades())
       .add(oven())
-      .add(candle())
+      //.add(candle())
       .add(cake());
 
 
