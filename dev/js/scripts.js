@@ -19,10 +19,10 @@ function jars(){
     const tl = gsap.timeline();
 
     tl.from("#jars",{duration:0.001, alpha:0})
-      .from("#jars",{duration:.5, drawSVG: "0%", ease: "slow (0.7, 0.7, false"})
+      .from("#jars",{duration:.75, drawSVG: "0%", ease: "none"})
       .to("#jars" ,{duration: .25, stroke: "#E9E5D8", scaleX: 1.1, scaleY: 1.1, transformOrigin: "50% 50%", ease: "expo.in"})
       .to("#jars" ,{duration: .25, stroke: "#E9E5D8", scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", ease: "expo.in"})
-      .fromTo("#jars", {drawSVG:"0% 100%"},{duration: .5, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false"});
+      .fromTo("#jars", {drawSVG:"0% 100%"},{duration: .75, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false)"});
 
     return tl;
 }
@@ -34,12 +34,14 @@ function mixer(){
     const tl = gsap.timeline ();
 
     tl.from("#mixer",{duration:0.001, alpha:0})
-      .from("#mixer",{duration: .5, drawSVG: "0%", ease: "slow (0.7, 0.7, false"})
-      .to("#blade1", {duration: .25, motionPath: {path:"#path1", align: "#path1"},repeat:1}, "same")
+      .from("#mixer",{duration: .75, drawSVG: "0%", ease: "none"})
+      .from("#blade1", {duration: .125, alpha:0}, 0.335)
+      .from("#blade2", {duration: .125, alpha:0}, 0.322)
+      .to("#blade1", {duration: .25, motionPath: {path:"#path1", align: "#path1"},repeat:1},"same")
       .to("#blade2", {duration: .25, motionPath: {path:"#path2", align: "#path2"},repeat:1},"same")
       .to("#blade1", {duration: .25, alpha:0})
       .to("#blade2", {duration: .25, alpha:0})
-      .fromTo("#mixer", {drawSVG:"0% 100%"},{duration: .5, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false"});
+      .fromTo("#mixer", {drawSVG:"0% 100%"},{duration: .75, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false)"});
 
     return tl;
 }
@@ -50,16 +52,16 @@ function oven(){
     const tl = gsap.timeline ();
 
     tl.from("#oven",{duration:0.001, alpha:0})
-      .from("#oven",{duration: .5, drawSVG: "0%", ease: "slow (0.7, 0.7, false"})
+      .from("#oven",{duration: .75, drawSVG: "0%", ease: "none"})
       .from("#knob1",{duration: .005, alpha:0}, 0.13)
       .from("#knob2",{duration: .005, alpha:0}, 0.135)
       .from("#knob3",{duration: .005, alpha:0, rotate: 0}, 0.139)
       .from("#knob4",{duration: .005, alpha:0}, 0.145)
       .from("#knob5",{duration: .005, alpha:0}, 0.149)
-      .from("#knob3", {duration: .25, rotate: 10, transformOrigin: "0% 0"})
+      .from("#knob3", {duration: .25, rotate: -10, transformOrigin: "0% 0"})
       .to("#oven", { duration: .25, stroke: "#FF522D", strokeWidth: 5})
       .to("#oven", { duration: .25, stroke: "#000", strokeWidth: 3})
-      .fromTo("#oven", {drawSVG:"0% 100%"},{duration: .5, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false"})
+      .fromTo("#oven", {drawSVG:"0% 100%"},{duration: .75, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false)"})
       .to("#knob1",{duration: .005, alpha:0}, 1.375)
       .to("#knob2",{duration: .005, alpha:0}, 1.38)
       .to("#knob3",{duration: .005, alpha:0, rotate: 0}, 1.383)
@@ -75,9 +77,9 @@ function cake(){
     const tl = gsap.timeline ();
 
     tl.from("#cake",{duration:0.001, alpha:0})
-      .from("#cake",{duration:.5, drawSVG: "0%", ease: "slow (0.7, 0.7, false"})
+      .from("#cake",{duration:.75, drawSVG: "0%", ease: "none"})
       .from("#candle", {duration: .25, alpha: 0})
-      .fromTo("#cake", {drawSVG:"0% 100%"},{duration: .5, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false"})
+      .fromTo("#cake", {drawSVG:"0% 100%"},{duration: .75, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false)"})
       .to("#candle", { duration: .25, alpha: 0, ease: "expo.out"}, "<-= 70%");
 
     return tl;
