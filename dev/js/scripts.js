@@ -7,6 +7,8 @@ gsap.registerPlugin(GSDevTools, DrawSVGPlugin);
 
 
 gsap.set("path", { drawSVG: 0 });
+gsap.set("knob3", {transformOrigin: "100% 100%", xPercent: -100, yPercent: -100});
+gsap.set("jars", {transformOrigin: "50% 50%", xPercent: -50, yPercent: -50});
 
 let mainTL = gsap.timeline({repeat: -1});
 
@@ -20,7 +22,7 @@ function jars(){
     const tl = gsap.timeline();
 
     tl.to("#jars", { duration: 1, drawSVG: true })
-    .to("#jars", { duration: 2, stroke: "#E9E5D8", ease: "expo.in"})
+    .to("#jars" ,{duration: 2, stroke: "#E9E5D8", ease: "expo.in"})
     .to("#jars", {duration: 1, drawSVG: "100% 100%"});
 
 
@@ -74,6 +76,7 @@ function oven(){
       .from("#knob3",{duration: .05, alpha:0},">-=.045")
       .from("#knob4",{duration: .05, alpha:0},">-=.035")
       .from("#knob5",{duration: .05, alpha:0},">-=.0469")
+      .from ("#knob3", {duration: .5, rotation: -20})
       .to("#oven", { duration: 1, stroke: "#FF522D", strokeWidth: 5})
       .to("#oven", { duration: 2, stroke: "#000", strokeWidth: 3})
       .to("#oven", {duration: 1, drawSVG: "100% 100%"});
