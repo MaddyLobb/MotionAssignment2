@@ -41,17 +41,17 @@ function mixer(){
 }
 
 
-// function blades(){
+function blades(){
 
-//     const tl = gsap.timeline ();
+    const tl = gsap.timeline ();
 
-//     tl.from("#blade1", {duration: 2, alpha:0})
-//     .from("#blade2", {duration: 2, alpha:0})
-//     .to("#blade1", { duration: 1, alpha: 0, ease: "expo.out"})
-//     .to("#blade2", { duration: 1, alpha: 0, ease: "expo.out"});
+    tl.from("#blade1", {duration: 2, alpha:0})
+    .from("#blade2", {duration: 2, alpha:0})
+    .to("#blade1", { duration: 1, alpha: 0, ease: "expo.out"})
+    .to("#blade2", { duration: 1, alpha: 0, ease: "expo.out"});
 
-//     return tl;
-// }
+    return tl;
+}
 
 
 function oven(){
@@ -86,25 +86,25 @@ function cake(){
 }
 
 
-// function candle(){
+function candle(){
 
-//     const tl = gsap.timeline ();
+    const tl = gsap.timeline ();
 
-//     tl.from("#candle", {duration: 2, alpha: 0})
-//     .to("#candle", { duration: 1, alpha: 0, ease: "expo.out"});
+    tl.from("#candle", {duration: 2, alpha: 0})
+    .to("#candle", { duration: 1, alpha: 0, ease: "expo.out"});
 
 
-//     return tl;
-// }
+    return tl;
+}
 
 
 
 
 mainTL.add(jars())
       .add(mixer())
-      //.add(blades())
+      .add(blades())
       .add(oven())
-      //.add(candle())
+      .add(candle())
       .add(cake());
 
 
