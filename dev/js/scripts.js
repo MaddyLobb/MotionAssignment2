@@ -115,7 +115,7 @@ mainTL.add(jars())
       .add(mixer(), "-=.5")
       .add(oven(), "-=.5")
       .add(cake(), "-=.5")
-      .add(heroanimation)();
+      .add(heroanimation());
 
 
 GSDevTools.create();
