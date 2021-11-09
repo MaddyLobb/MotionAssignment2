@@ -101,9 +101,9 @@ function heroanimation(){
 
     const tl = gsap.timeline ();
 
-    tl.from("#pathOne",{duration:2, drawSVG: "0%"})
+    tl.from("#pathOne",{duration:1, drawSVG: "0%"})
       .to("#pathOne",{duration: 0.05, alpha: 0})
-      .from("#text",{duration:3, alpha: 0},">-.5")
+      .from("#text",{duration:2, alpha: 0},">-.25")
       .from("#header", {duration: .5, alpha: 0},">-2");
 
     return tl;
