@@ -2,9 +2,10 @@ import { gsap } from "gsap";
 import { GSDevTools } from "gsap/GSDevTools";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { TextPlugin } from "gsap/TextPlugin";
 
 //console.clear();
-gsap.registerPlugin(GSDevTools, DrawSVGPlugin, MotionPathPlugin);
+gsap.registerPlugin(GSDevTools, DrawSVGPlugin, MotionPathPlugin, TextPlugin);
 
 
 let mainTL = gsap.timeline();
@@ -22,6 +23,7 @@ function jars(){
       .from("#jars",{duration:.75, drawSVG: "0%", ease: "none"})
       .from("#lid1" ,{duration: .05, alpha: 0, rotate: 0}, 0.3)
       .from("#lid2" ,{duration: .05, alpha:0, rotate: 0}, 0.49)
+      .from("#welcometext", {duration: .05, alpha:0, ease: "none"})
       .from(".lids", {duration: .5, rotate: -20, transformOrigin: "0% 0"})
       .fromTo("#jars", {drawSVG:"0% 100%"},{duration: .75, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false)"})
       .to("#lid1" ,{duration: .05, alpha: 0}, 1.42)
@@ -40,6 +42,7 @@ function mixer(){
       .from("#mixer",{duration: .75, drawSVG: "0%", ease: "none"})
       .from("#blade1", {duration: .125, alpha:0}, 0.335)
       .from("#blade2", {duration: .125, alpha:0}, 0.322)
+      .to("#welcometext", {duration: .25, text: "WELCOME", ease: "none"})
       .to("#blade1", {duration: .25, motionPath: {path:"#path1", align: "#path1"},repeat:1},"same")
       .from("#blade2", {duration: .25, motionPath: {path:"#path2", align: "#path2"},repeat:1},"same")
       .fromTo("#mixer", {drawSVG:"0% 100%"},{duration: .75, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false)"})
@@ -61,6 +64,7 @@ function oven(){
       .from("#knob3",{duration: .005, alpha:0, rotate: 0}, 0.36)
       .from("#knob4",{duration: .005, alpha:0}, 0.37)
       .from("#knob5",{duration: .005, alpha:0}, 0.38)
+      .to("#welcometext", {duration: .25, text: "LOADING", ease: "none"})
       .from("#knob3", {duration: .25, rotate: -10, transformOrigin: "0% 0"})
       .to("#oven", { duration: .5, stroke: "#FF522D", strokeWidth: 5})
       .to("#oven", { duration: .25, stroke: "#000", strokeWidth: 3})
@@ -81,6 +85,7 @@ function cake(){
 
     tl.from("#cake",{duration:0.001, alpha:0})
       .from("#cake",{duration:.75, drawSVG: "0%", ease: "none"})
+      .to("#welcometext", {duration: .25, text: "COMPLETE", ease: "none"})
       .from("#candle", {duration: .5, alpha: 0})
       .fromTo("#cake", {drawSVG:"0% 100%"},{duration: .75, drawSVG:"100% 100%", ease: "slow (0.7, 0.7, false)"})
       .to("#candle", { duration: .25, alpha: 0, ease: "expo.out"}, "<-= 70%")
